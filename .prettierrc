@@ -1,5 +1,5 @@
 {
-  "trailingComma": "es5",
+  "trailingComma": "none",
   "tabWidth": 4,
   "tabs": true,
   "semi": false,
@@ -9,5 +9,5 @@
   "bracketSameLine": false,
   "arrowParens": "always",
   "endOfLine": "lf",
-  "singleAttributePerLine": true
+  "singleAttributePerLine": false
 }

@@ -1,0 +1,13 @@
+.navbar {
+    height: var(--nav-size);
+    background-color: #1F2428;
+    padding: 0 1rem;
+    border-bottom: 8px;
+}
+
+.navbar-nav {
+    max-width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
