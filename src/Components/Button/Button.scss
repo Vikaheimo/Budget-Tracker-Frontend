@@ -1,0 +1,21 @@
+.Button-pushable {
+    background: rgb(12, 13, 12);
+    border-radius: 12px;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline-offset: 4px;
+}
+.Button-front {
+    display: block;
+    padding: 12px 42px;
+    border-radius: 12px;
+    font-size: 1.25rem;
+    background: rgb(0, 0, 0);
+    color: var(--text-color);
+    transform: translateY(-6px);
+}
+
+.Button-pushable:active .Button-front {
+    transform: translateY(-2px);
+}
