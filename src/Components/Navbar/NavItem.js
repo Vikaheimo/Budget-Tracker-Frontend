@@ -4,8 +4,8 @@ import "./NavItem.scss"
 const NavItem = (props) => {
     return (
         <li className="nav-item">
-            <a href="#" className="nav-link">
-                {props.icon}
+            <a href={props.link ? props.link : "#"} className="nav-link">
+                {props.text}
             </a>
         </li>
     )
