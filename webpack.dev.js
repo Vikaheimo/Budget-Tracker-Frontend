@@ -11,6 +11,7 @@ module.exports = merge(common, {
         static: {
             directory: path.join(__dirname, "public")
         },
+        historyApiFallback: true,
         open: true,
         hot: true,
         liveReload: true

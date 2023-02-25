@@ -1,38 +1,33 @@
 import React from "react"
-import Navbar from "./Components/Navbar/Navbar"
-import Button from "./Components/Button/Button"
-import FileUploader from "./Components/FileUploader/FileUploader"
-import Expenses from "./Service/Expenses"
+import {
+    createBrowserRouter,
+    createRoutesFromElements,
+    Route,
+    RouterProvider
+} from "react-router-dom"
+
+import RootLayout from "./Layouts/RootLayout"
+
+// Routes
+import Home from "./pages/Home"
+import Login from "./pages/Login"
+import Upload from "./pages/Upload"
+
 import "./App.scss"
 
-const NAVITEMS = [
-    {
-        id: 1,
-        link: "#",
-        text: "Link To 1"
-    },
-    {
-        id: 2,
-        link: "#",
-        text: "Link To 2"
-    },
-    {
-        id: 3,
-        link: "#",
-        text: "Link To 3"
-    }
-]
-
-const App = () => {
-    return (
-        <div className="root">
-            <Navbar navitems={NAVITEMS} />
-        </div>
+const router = createBrowserRouter(
+    createRoutesFromElements(
+        <Route path="/" element={<RootLayout />}>
+            <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/upload" element={<Upload />} />
+        </Route>
     )
+)
+
+//<Navbar navitems={routes} />
+const App = () => {
+    return <RouterProvider router={router} />
 }
-/*
-            <Button text={"kissa"} onClick={() => console.log("Kissa")} />
-            <FileUploader text={"kissa koira"} submitFile={Expenses.update} />
-*/
 
 export default App
