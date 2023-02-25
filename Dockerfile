@@ -8,7 +8,7 @@ RUN npm ci
 RUN npm run build
 
 # Running-Stage
-FROM nginx:1.21.0-alpine as production
+FROM nginx:stable-alpine as production
 ENV NODE_ENV production
 
 COPY --from=builder /app/dist /usr/share/nginx/html
