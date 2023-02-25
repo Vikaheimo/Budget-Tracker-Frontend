@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import Button from "../../Components/Button/Button"
+import backendAPI from "../../Service/instance"
 
 import "./Login.scss"
 const Login = ({ setToken }) => {
@@ -12,12 +13,17 @@ const Login = ({ setToken }) => {
     }
 
     const handlesubmit = (event) => {
-        if (!isValidForm()) {
-            setLoginStatus("Login Fields cannot be empty!")
-        } else {
-            setToken(token)
-        }
         event.preventDefault()
+        if (!isValidForm()) {
+            setLoginStatus("Login fields cannot be empty!")
+            return
+        }
+        backendAPI
+            .post("login")
+            .then((res) => {})
+            .catch((err) => {
+                console.log(err)
+            })
     }
 
     return (
@@ -37,7 +43,7 @@ const Login = ({ setToken }) => {
                     <input
                         onChange={(e) => setPassword(e.target.value)}
                         id="password"
-                        type="text"
+                        type="password"
                         value={password}
                     />
                 </div>

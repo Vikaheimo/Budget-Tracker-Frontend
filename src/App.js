@@ -28,17 +28,6 @@ const router = createBrowserRouter(
 
 //<Navbar navitems={routes} />
 const App = () => {
-    const backendConfig = {
-        baseURL: "/api",
-        timeout: 3000
-    }
-
-    if (process.env.NODE_ENV !== "production") {
-        backendConfig.baseURL = "http://localhost:3001/api"
-    }
-
-    const backendAPI = axios.create(backendConfig)
-    backendAPI.get("/asdsad")
     const [token, setToken] = useState()
 
     if (!token) {
