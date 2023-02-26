@@ -10,9 +10,9 @@ import {
 import RootLayout from "./Layouts/RootLayout"
 
 // Routes
-import Home from "./pages/Home/Home"
-import Login from "./pages/Login/Login"
-import Upload from "./pages/Upload/Upload"
+import Home from "./Pages/Home/Home"
+import Login from "./Pages/Login/Login"
+import Upload from "./Pages/Upload/Upload"
 
 import "./App.scss"
 

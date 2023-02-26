@@ -19,9 +19,12 @@ const Login = ({ setToken }) => {
             return
         }
         backendAPI
-            .post("login")
-            .then((res) => {})
+            .post("user/login", { username: username, password: password })
+            .then((res) => {
+                setToken(res.data.token)
+            })
             .catch((err) => {
+                // TOOD handle errors
                 console.log(err)
             })
     }

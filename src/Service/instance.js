@@ -6,7 +6,7 @@ const backendConfig = {
 }
 
 if (process.env.NODE_ENV !== "production") {
-    backendConfig.baseURL = "http://localhost:3001/api"
+    backendConfig.baseURL = "http://localhost:8000/api"
 }
 
 const backendAPI = axios.create(backendConfig)
