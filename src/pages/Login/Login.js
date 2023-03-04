@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import Button from "../../Components/Button/Button"
+import Signup from "../../Components/Signup/Signup"
 import backendAPI from "../../Service/instance"
 
 import "./Login.scss"
@@ -7,7 +8,12 @@ const Login = ({ setToken }) => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [loginStatus, setLoginStatus] = useState("")
+    const [show, setShow] = useState(false)
 
+    const togglePopup = () => {
+        console.log("toggle")
+        setShow(!show)
+    }
     const isValidForm = () => {
         return username.length > 0 && password.length > 0
     }
@@ -24,37 +30,44 @@ const Login = ({ setToken }) => {
                 setToken(res.data.token)
             })
             .catch((err) => {
-                // TOOD handle errors
-                console.log(err)
+                // this handles invalid credentials
+                if (err.response.status === 403) {
+                    setLoginStatus(err.response.data.error)
+                } else {
+                    setLoginStatus("Server error")
+                }
             })
     }
 
     return (
-        <div className="login">
-            <form onSubmit={handlesubmit}>
-                <div className="loginfield">
-                    <label htmlFor="username">Username</label>
-                    <input
-                        onChange={(e) => setUsername(e.target.value)}
-                        id="username"
-                        type="text"
-                        value={username}
-                    />
-                </div>
-                <div className="loginfield">
-                    <label htmlFor="password">Password</label>
-                    <input
-                        onChange={(e) => setPassword(e.target.value)}
-                        id="password"
-                        type="password"
-                        value={password}
-                    />
-                </div>
-                <div className="loginstatus">
-                    <div className="status-text">{loginStatus}</div>
-                    <Button text={"Login"} type={"submitform"} />
-                </div>
-            </form>
+        <div>
+            <Signup show={show} toggle={togglePopup} setToken={setToken} />
+            <div className="login">
+                <form onSubmit={handlesubmit}>
+                    <div className="loginfield">
+                        <label htmlFor="username">Username</label>
+                        <input
+                            onChange={(e) => setUsername(e.target.value)}
+                            id="username"
+                            type="text"
+                            value={username}
+                        />
+                    </div>
+                    <div className="loginfield">
+                        <label htmlFor="password">Password</label>
+                        <input
+                            onChange={(e) => setPassword(e.target.value)}
+                            id="password"
+                            type="password"
+                            value={password}
+                        />
+                    </div>
+                    <div className="login-buttons">
+                        <a onClick={togglePopup}>Create Account</a>
+                        <Button text={"Login"} type={"submitform"} />
+                    </div>
+                </form>
+            </div>
         </div>
     )
 }
