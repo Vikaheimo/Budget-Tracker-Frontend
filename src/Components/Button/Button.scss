@@ -9,6 +9,11 @@
     margin-top: 5px;
     transform: translate(-10px, 0);
 }
+
+.Button-pushable.secondary {
+    background: #3b4464;
+}
+
 .Button-front {
     display: block;
     padding: 5px 20px;
@@ -16,6 +21,10 @@
     background: #3a5dd3;
     color: var(--text-color);
     transform: translateY(-6px);
+}
+
+.Button-front.secondary {
+    background: #566491;
 }
 
 .Button-pushable:active .Button-front {

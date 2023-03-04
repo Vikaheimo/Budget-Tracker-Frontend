@@ -3,11 +3,20 @@ import "./Button.scss"
 const Button = (props) => {
     return (
         <button
-            className="Button-pushable"
+            id={props.identity}
+            className={`Button-pushable ${
+                props.buttonType ? props.buttonType : ""
+            }`}
             onClick={props.onClick}
-            type={props.type && ""}
+            type={props.type}
         >
-            <span className="Button-front">{props.text}</span>
+            <span
+                className={`Button-front ${
+                    props.buttonType ? props.buttonType : ""
+                }`}
+            >
+                {props.text}
+            </span>
         </button>
     )
 }
