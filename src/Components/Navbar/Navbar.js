@@ -17,7 +17,7 @@ const Navbar = ({ navitems }) => {
                     </li>
                 ))}
             </nav>
-            <Button text={"Contact Me"} onClick={() => console.log("TODO!")} />
+            <Button text={"Contact Me"} />
         </div>
     )
 }

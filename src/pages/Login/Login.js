@@ -11,7 +11,6 @@ const Login = ({ setToken }) => {
     const [show, setShow] = useState(false)
 
     const togglePopup = () => {
-        console.log("toggle")
         setShow(!show)
     }
 
@@ -29,15 +28,16 @@ const Login = ({ setToken }) => {
             .post("user/login", { username: username, password: password })
             .then((res) => {
                 setToken(res.data.token)
+                window.localStorage.setItem(
+                    "loggedBudgetTrackerToken",
+                    res.data.token
+                )
             })
             .catch((err) => {
-                console.log(err)
                 // this handles invalid credentials
                 if (err.response && err.response.status === 403) {
-                    console.log("asdasd")
                     setLoginStatus(err.response.data.error)
                 } else {
-                    console.log("asd")
                     setLoginStatus("Serverside Error")
                 }
             })

@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useEffect, useState } from "react"
 import {
     createBrowserRouter,
     createRoutesFromElements,
@@ -29,9 +29,20 @@ const router = createBrowserRouter(
 const App = () => {
     const [token, setToken] = useState()
 
-    if (!token) {
+    // Handle token authentication!
+    useEffect(() => {
+        const loggedUserToken = window.localStorage.getItem(
+            "loggedBudgetTrackerToken"
+        )
+        if (!loggedUserToken) return
+
+        setToken(loggedUserToken)
+    })
+
+    if (!token || !window.localStorage.getItem("loggedBudgetTrackerToken")) {
         return <Login setToken={setToken} />
     }
+
     return <RouterProvider router={router} />
 }
 

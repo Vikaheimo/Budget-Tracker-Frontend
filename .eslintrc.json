@@ -3,9 +3,12 @@
     "env": {
         "browser": true,
         "commonjs": true,
-        "es2021": true
+        "es2021": true,
+        "node": "true"
     },
     "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
         "prettier"
     ],
     "overrides": [
@@ -15,8 +18,10 @@
     },
     
     "ignorePatterns": ["node_modules"],
-    "plugins": ["prettier"],
+    "plugins": ["react", "prettier"],
     "rules": {
-        "prettier/prettier": ["error"]
+        "prettier/prettier": ["error"],
+        "no-console": ["warn"],
+        "react/prop-types": ["off"]
     }
 }
