@@ -14,13 +14,14 @@ const Login = ({ setToken }) => {
         console.log("toggle")
         setShow(!show)
     }
-    const isValidForm = () => {
-        return username.length > 0 && password.length > 0
+
+    const hasEmpty = () => {
+        return username.length === 0 || password.length === 0
     }
 
     const handlesubmit = (event) => {
         event.preventDefault()
-        if (!isValidForm()) {
+        if (hasEmpty()) {
             setLoginStatus("Login fields cannot be empty!")
             return
         }
@@ -30,11 +31,14 @@ const Login = ({ setToken }) => {
                 setToken(res.data.token)
             })
             .catch((err) => {
+                console.log(err)
                 // this handles invalid credentials
-                if (err.response.status === 403) {
+                if (err.response && err.response.status === 403) {
+                    console.log("asdasd")
                     setLoginStatus(err.response.data.error)
                 } else {
-                    setLoginStatus("Server error")
+                    console.log("asd")
+                    setLoginStatus("Serverside Error")
                 }
             })
     }
@@ -65,6 +69,9 @@ const Login = ({ setToken }) => {
                     <div className="login-buttons">
                         <a onClick={togglePopup}>Create Account</a>
                         <Button text={"Login"} type={"submitform"} />
+                    </div>
+                    <div className="infotext">
+                        <small>{loginStatus}</small>
                     </div>
                 </form>
             </div>

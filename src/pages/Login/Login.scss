@@ -1,5 +1,6 @@
 .login{
     scale: 200%;
+    text-align: center;
     transform: translate(0, 40%);
     margin: 0 25%;
     form {
@@ -35,9 +36,19 @@
     align-items: center;
 }
 
-.status-text{
+.infotext{ 
     width: 170px;
     font-size: small;
     text-align: center;
-    color: rgb(171, 66, 58);
+    small {
+        position: absolute;
+        font-size: 10px;
+        color: rgb(171, 66, 58);
+        translate: 0 -12px;
+        margin-left: auto;
+        margin-right: auto;
+        left: 0;
+        right: 0;
+        text-align: center;
+    }
 }

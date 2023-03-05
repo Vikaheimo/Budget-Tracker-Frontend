@@ -37,7 +37,7 @@ const Signup = (props) => {
             })
             .catch((err) => {
                 // this handles invalid credentials
-                if (err.response.status === 403) {
+                if (err.response && err.response.status === 403) {
                     setSignupStatus(err.response.data.error)
                 } else {
                     setSignupStatus("Server error")
