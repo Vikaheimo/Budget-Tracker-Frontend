@@ -12,8 +12,8 @@ const NAVITEMS = [
         text: "Upload"
     },
     {
-        link: "/login",
-        text: "Login"
+        link: "/logout",
+        text: "Logout"
     }
 ]
 

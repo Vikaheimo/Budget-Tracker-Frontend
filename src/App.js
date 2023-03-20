@@ -12,6 +12,8 @@ import RootLayout from "./Layouts/RootLayout"
 import Home from "./pages/Home/Home"
 import Login from "./pages/Login/Login"
 import Upload from "./pages/Upload/Upload"
+import Logout from "./Pages/Logout/Logout"
+import Notfound from "./Pages/Notfound/Notfound"
 
 import "./App.scss"
 
@@ -20,7 +22,9 @@ const router = createBrowserRouter(
         <Route path="/" element={<RootLayout />}>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/logout" element={<Logout />} />
             <Route path="/upload" element={<Upload />} />
+            <Route path="*" element={<Notfound />} />
         </Route>
     )
 )
