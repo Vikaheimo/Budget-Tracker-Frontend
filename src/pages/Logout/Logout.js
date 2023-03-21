@@ -2,11 +2,10 @@ import React, { useEffect } from "react"
 
 const Logout = () => {
     useEffect(() => {
-        if (!window.localStorage.getItem("loggedBudgetTrackerToken")) {
-            return
+        if (window.localStorage.getItem("loggedBudgetTrackerToken")) {
+            window.localStorage.removeItem("loggedBudgetTrackerToken")
         }
-        window.localStorage.removeItem("loggedBudgetTrackerToken")
-        window.location.reload()
+        document.location.href = "/"
     })
     return <></>
 }
