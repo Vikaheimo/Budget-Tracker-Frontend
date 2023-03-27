@@ -26,6 +26,7 @@ const FileUploader = () => {
                 type={"file"}
                 onChange={handleFileInput}
                 id="fileupload-field"
+                accept=".csv"
             />
             <Button
                 text={"Upload"}

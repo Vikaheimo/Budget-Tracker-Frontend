@@ -1,54 +1,42 @@
-.login{
-    scale: 200%;
-    text-align: center;
-    transform: translate(0, 40%);
-    margin: 0 25%;
-    form {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-    }
-    .loginfield {
-        display: flex;
-        justify-content: space-evenly;
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 10px;
-
-        input {
-            max-width: 300px;
-            min-width: 100px;
-        }
-    }
-}
-.login-buttons {
-    a {
-        font-size: 10px;
-        transform: translate(80px, -20px);
-    }
-    a:hover {
-        cursor: pointer;
-        color: #2596b9;
-    }
+.login {
+    height: 800px;
+    font-size: 3rem;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
+
+    .loginfield {
+        display: flex;
+        justify-content: center;
+        margin-top: 2rem;
+    }
+
+    .top-text {
+        text-align: center;
+        margin-top: 5rem;
+        margin-bottom: 5rem;
+    }
+
+    .create-account-helper {
+        margin-top: 1rem;
+        font-size: 1.5rem;
+        text-align: center;
+
+        div {
+            display: inline;
+            margin-right: 1rem;
+        }
+        
+        a {
+            text-decoration: underline;
+            color: #00ADB5;
+        }
+    }
 }
 
-.infotext{ 
-    width: 170px;
-    font-size: small;
-    text-align: center;
-    small {
-        position: absolute;
-        font-size: 10px;
-        color: rgb(171, 66, 58);
-        translate: 0 -12px;
-        margin-left: auto;
-        margin-right: auto;
-        left: 0;
-        right: 0;
-        text-align: center;
-    }
+#full-size {
+    margin-top: 2rem;
+    width: 100%;
+    height: 50px;
 }

@@ -2,12 +2,13 @@ import React, { useState } from "react"
 import Button from "../../Components/Button/Button"
 import Signup from "../../Components/Signup/Signup"
 import backendAPI from "../../Service/instance"
+import TextInput from "../../Components/Textinput/Textinput"
 
 import "./Login.scss"
+
 const Login = ({ setToken }) => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
-    const [loginStatus, setLoginStatus] = useState("")
     const [show, setShow] = useState(false)
 
     const togglePopup = () => {
@@ -21,7 +22,6 @@ const Login = ({ setToken }) => {
     const handlesubmit = (event) => {
         event.preventDefault()
         if (hasEmpty()) {
-            setLoginStatus("Login fields cannot be empty!")
             return
         }
         backendAPI
@@ -36,9 +36,9 @@ const Login = ({ setToken }) => {
             .catch((err) => {
                 // this handles invalid credentials
                 if (err.response && err.response.status === 403) {
-                    setLoginStatus(err.response.data.error)
+                    // todo
                 } else {
-                    setLoginStatus("Serverside Error")
+                    // todo
                 }
             })
     }
@@ -48,30 +48,35 @@ const Login = ({ setToken }) => {
             <Signup show={show} toggle={togglePopup} setToken={setToken} />
             <div className="login">
                 <form onSubmit={handlesubmit}>
+                    <div className="top-text">Log in</div>
                     <div className="loginfield">
-                        <label htmlFor="username">Username</label>
-                        <input
+                        <TextInput
                             onChange={(e) => setUsername(e.target.value)}
                             id="username"
                             type="text"
                             value={username}
+                            placeholder="Username"
                         />
                     </div>
                     <div className="loginfield">
-                        <label htmlFor="password">Password</label>
-                        <input
-                            onChange={(e) => setPassword(e.target.value)}
+                        <TextInput
+                            onChange={(e) => {
+                                setPassword(e.target.value)
+                            }}
                             id="password"
                             type="password"
                             value={password}
+                            placeholder="Password"
                         />
                     </div>
-                    <div className="login-buttons">
-                        <a onClick={togglePopup}>Create Account</a>
-                        <Button text={"Login"} type={"submitform"} />
-                    </div>
-                    <div className="infotext">
-                        <small>{loginStatus}</small>
+                    <Button
+                        text={"Login"}
+                        type={"submitform"}
+                        divId={"full-size"}
+                    />
+                    <div className="create-account-helper">
+                        <div>Don&apos;t have an account?</div>
+                        <a onClick={togglePopup}>Sign up</a>
                     </div>
                 </form>
             </div>

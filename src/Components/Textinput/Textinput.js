@@ -6,10 +6,10 @@ const TextInput = (props) => {
         <input
             className="rounded-corners-gradient-borders"
             onChange={props.onChange}
-            id={props.id && ""}
-            type={props.type && "text"}
-            value={props.value && ""}
-            placeholder={props.value && ""}
+            id={props.id || ""}
+            type={props.type || "text"}
+            value={props.value || ""}
+            placeholder={props.placeholder || ""}
         />
     )
 }
