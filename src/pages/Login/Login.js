@@ -38,41 +38,39 @@ const Login = ({ setToken }) => {
     }
 
     return (
-        <div>
-            <div className="login">
-                <form onSubmit={handlesubmit}>
-                    <div className="top-text">Log in</div>
-                    <div className="loginfield">
-                        <TextInput
-                            onChange={(e) => setUsername(e.target.value)}
-                            id="username"
-                            type="text"
-                            value={username}
-                            placeholder="Username"
-                        />
-                    </div>
-                    <div className="loginfield">
-                        <TextInput
-                            onChange={(e) => {
-                                setPassword(e.target.value)
-                            }}
-                            id="password"
-                            type="password"
-                            value={password}
-                            placeholder="Password"
-                        />
-                    </div>
-                    <Button
-                        text={"Login"}
-                        type={"submitform"}
-                        divId={"full-size"}
+        <div className="login">
+            <form onSubmit={handlesubmit}>
+                <div className="top-text">Sign in</div>
+                <div className="loginfield">
+                    <TextInput
+                        onChange={(e) => setUsername(e.target.value)}
+                        id="username"
+                        type="text"
+                        value={username}
+                        placeholder="Username"
                     />
-                    <div className="create-account-helper">
-                        <div>Don&apos;t have an account?</div>
-                        <a href="/signup">Sign up</a>
-                    </div>
-                </form>
-            </div>
+                </div>
+                <div className="loginfield">
+                    <TextInput
+                        onChange={(e) => {
+                            setPassword(e.target.value)
+                        }}
+                        id="password"
+                        type="password"
+                        value={password}
+                        placeholder="Password"
+                    />
+                </div>
+                <Button
+                    text={"Login"}
+                    type={"submitform"}
+                    divId={"full-size"}
+                />
+                <div className="create-account-helper">
+                    <div>Don&apos;t have an account?</div>
+                    <a href="/signup">Sign up</a>
+                </div>
+            </form>
         </div>
     )
 }
