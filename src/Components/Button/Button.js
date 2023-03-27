@@ -2,22 +2,16 @@ import React from "react"
 import "./Button.scss"
 const Button = (props) => {
     return (
-        <button
-            id={props.identity}
-            className={`Button-pushable ${
-                props.buttonType ? props.buttonType : ""
-            }`}
-            onClick={props.onClick}
-            type={props.type}
-        >
-            <span
-                className={`Button-front ${
-                    props.buttonType ? props.buttonType : ""
-                }`}
+        <div className={"default-button"} id={props.divId}>
+            <button
+                id={props.identity}
+                className="button-pushable"
+                onClick={props.onClick}
+                type={props.type}
             >
                 {props.text}
-            </span>
-        </button>
+            </button>
+        </div>
     )
 }
 

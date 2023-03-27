@@ -5,6 +5,7 @@ const common = require("./webpack.common")
 const { merge } = require("webpack-merge")
 
 module.exports = merge(common, {
+    cache: false,
     mode: "development",
     devServer: {
         port: "5000",
@@ -14,7 +15,7 @@ module.exports = merge(common, {
         historyApiFallback: true,
         open: true,
         hot: true,
-        liveReload: true
+        liveReload: true,
     },
     module: {
         rules: [
