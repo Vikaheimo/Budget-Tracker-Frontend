@@ -20,7 +20,11 @@ const SignUp = ({ setToken }) => {
             return
         }
         backendAPI
-            .post("signup", { username: username, password: password, email: email })
+            .post("signup", {
+                username: username,
+                password: password,
+                email: email
+            })
             .then((res) => {
                 setToken(res.data.token)
                 window.localStorage.setItem(
