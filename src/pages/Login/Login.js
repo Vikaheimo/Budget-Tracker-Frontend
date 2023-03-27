@@ -1,6 +1,5 @@
 import React, { useState } from "react"
 import Button from "../../Components/Button/Button"
-import Signup from "../../Components/Signup/Signup"
 import backendAPI from "../../Service/instance"
 import TextInput from "../../Components/Textinput/Textinput"
 
@@ -9,11 +8,6 @@ import "./Login.scss"
 const Login = ({ setToken }) => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
-    const [show, setShow] = useState(false)
-
-    const togglePopup = () => {
-        setShow(!show)
-    }
 
     const hasEmpty = () => {
         return username.length === 0 || password.length === 0
@@ -45,7 +39,6 @@ const Login = ({ setToken }) => {
 
     return (
         <div>
-            <Signup show={show} toggle={togglePopup} setToken={setToken} />
             <div className="login">
                 <form onSubmit={handlesubmit}>
                     <div className="top-text">Log in</div>
@@ -76,7 +69,7 @@ const Login = ({ setToken }) => {
                     />
                     <div className="create-account-helper">
                         <div>Don&apos;t have an account?</div>
-                        <a onClick={togglePopup}>Sign up</a>
+                        <a href="/signup">Sign up</a>
                     </div>
                 </form>
             </div>

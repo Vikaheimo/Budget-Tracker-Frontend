@@ -14,6 +14,7 @@ import Login from "./pages/Login/Login"
 import Upload from "./pages/Upload/Upload"
 import Logout from "./Pages/Logout/Logout"
 import Notfound from "./Pages/Notfound/Notfound"
+import SignUp from "./Pages/Signup/SignUp"
 
 import "./App.scss"
 
@@ -42,6 +43,10 @@ const App = () => {
 
         setToken(loggedUserToken)
     })
+
+    if (window.location.pathname === "/signup") {
+        return <SignUp setToken={setToken} />
+    }
 
     if (!token || !window.localStorage.getItem("loggedBudgetTrackerToken")) {
         return <Login setToken={setToken} />
