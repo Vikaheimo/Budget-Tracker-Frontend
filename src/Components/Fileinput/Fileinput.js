@@ -1,7 +1,7 @@
 import React from "react"
 import "./Fileinput.scss"
 
-const Fileinput = ({ onSubmitFunction }) => {
+const Fileinput = ({ onSubmitFunction, accept }) => {
     const handlesubmit = (event) => {
         event.preventDefault()
         const files = event.target.files
@@ -19,7 +19,7 @@ const Fileinput = ({ onSubmitFunction }) => {
             <input
                 type="file"
                 id="fileinput"
-                accept="*.csv"
+                accept={accept || ""}
                 required
                 multiple
                 onChange={handlesubmit}
