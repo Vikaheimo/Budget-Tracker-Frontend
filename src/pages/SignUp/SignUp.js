@@ -11,7 +11,9 @@ const SignUp = ({ setToken }) => {
     const [email, setEmail] = useState("")
 
     const hasEmpty = () => {
-        return username.length === 0 || password.length === 0 || email.length
+        return (
+            username.length === 0 || password.length === 0 || email.length === 0
+        )
     }
 
     const handlesubmit = (event) => {
@@ -20,7 +22,7 @@ const SignUp = ({ setToken }) => {
             return
         }
         backendAPI
-            .post("signup", {
+            .post("user/signup", {
                 username: username,
                 password: password,
                 email: email
@@ -31,6 +33,7 @@ const SignUp = ({ setToken }) => {
                     "loggedBudgetTrackerToken",
                     res.data.token
                 )
+                window.location.href = "/"
             })
             .catch((err) => {
                 // this handles bad / malformed requests

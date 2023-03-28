@@ -26,6 +26,7 @@ const Login = ({ setToken }) => {
                     "loggedBudgetTrackerToken",
                     res.data.token
                 )
+                window.location.href = "/"
             })
             .catch((err) => {
                 // this handles invalid credentials
