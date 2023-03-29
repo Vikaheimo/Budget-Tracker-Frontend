@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { useTranslation } from "react-i18next"
 import backendAPI from "../../Service/instance"
 import TextInput from "../../Components/Textinput/Textinput"
 import Button from "../../Components/Button/Button"
@@ -9,6 +10,7 @@ const SignUp = ({ setToken }) => {
     const [username, setUsername] = useState("")
     const [password, setPassword] = useState("")
     const [email, setEmail] = useState("")
+    const { t } = useTranslation()
 
     const hasEmpty = () => {
         return (
@@ -57,7 +59,7 @@ const SignUp = ({ setToken }) => {
                         id="email"
                         type="text"
                         value={email}
-                        placeholder="Email"
+                        placeholder={t("email")}
                     />
                 </div>
                 <div className="signupfield">
@@ -66,7 +68,7 @@ const SignUp = ({ setToken }) => {
                         id="username"
                         type="text"
                         value={username}
-                        placeholder="Username"
+                        placeholder={t("username")}
                     />
                 </div>
                 <div className="signupfield">
@@ -77,17 +79,17 @@ const SignUp = ({ setToken }) => {
                         id="password"
                         type="password"
                         value={password}
-                        placeholder="Password"
+                        placeholder={t("password")}
                     />
                 </div>
                 <Button
-                    text={"Create account"}
+                    text={t("create-account")}
                     type={"submitform"}
                     divId={"full-size"}
                 />
                 <div className="create-account-helper">
-                    <div>Already have an account?</div>
-                    <a href="/login">Sign in</a>
+                    <div>{t("have-account-helper-text")}</div>
+                    <a href="/login">{t("login")}</a>
                 </div>
             </form>
         </div>

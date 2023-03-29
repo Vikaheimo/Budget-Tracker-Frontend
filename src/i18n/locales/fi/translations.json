@@ -1,0 +1,11 @@
+{
+    "create-account": "Luo tili",
+    "email": "Sähköposti",
+    "have-account-helper-text": "Onko sinulla jo tili?",
+    "login": "Kirjaudu sisään",
+    "no-account-helper-text": "Eikö sinulla vielä ole tiliä?",
+    "password": "Salasana",
+    "sign-in": "Kirjaudu sisään",
+    "sign-up": "Luo tili",
+    "username": "Käyttäjätunnus"
+}

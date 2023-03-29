@@ -7,6 +7,7 @@ import {
 } from "react-router-dom"
 
 import RootLayout from "./Layouts/RootLayout"
+import "./i18n/config"
 
 // Routes
 import Home from "./pages/Home/Home"

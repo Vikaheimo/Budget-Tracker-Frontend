@@ -1,0 +1,11 @@
+{
+    "create-account": "Create account",
+    "email": "Email",
+    "have-account-helper-text": "Already have an account?",
+    "login": "Login",
+    "no-account-helper-text": "Don't have an account?",
+    "password": "Password",
+    "sign-in": "Sign in",
+    "sign-up": "Sign up",
+    "username": "Username"
+}
