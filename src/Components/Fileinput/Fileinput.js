@@ -1,7 +1,10 @@
 import React from "react"
+import { useTranslation } from "react-i18next"
 import "./Fileinput.scss"
 
 const Fileinput = ({ onSubmitFunction, accept }) => {
+    const { t } = useTranslation()
+
     const handlesubmit = (event) => {
         event.preventDefault()
         const files = event.target.files
@@ -12,10 +15,11 @@ const Fileinput = ({ onSubmitFunction, accept }) => {
         }
         onSubmitFunction(files)
     }
+
     return (
         <label htmlFor="fileinput" className="drop-container">
-            <span className="drop-title">Drop files here</span>
-            or
+            <span className="drop-title">{t("drop-files-here")}</span>
+            {t("or")}
             <input
                 type="file"
                 id="fileinput"
